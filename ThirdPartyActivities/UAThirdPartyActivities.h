@@ -7,3 +7,24 @@
 //
 
 #import "UATPActivities.h"
+
+
+// Activities - Calls
+#import "UATPActivityFaceTimeAudio.h"
+#import "UATPActivityFaceTimeVideo.h"
+#import "UATPActivityPhoneCall.h"
+
+// Activities - Mail Clients
+#import "UATPActivityMail.h"
+#import "UATPActivityGmail.h"
+
+// Activities - Mapping
+#import "UATPActivityMaps.h"
+#import "UATPActivityGoogleMaps.h"
+
+// Activities - SMS
+#import "UATPActivitySMS.h"
+
+// Activities - Web Browsers
+#import "UATPActivityChrome.h"
+#import "UATPActivitySafari.h"

@@ -5,3 +5,24 @@
   Created by Rob Amos on 3/12/2014.
   Copyright (c) 2014 Unsigned Apps. All rights reserved.
 */
+
+
+// Action Titles - Phone Calls
+"action-title-call"                 = "Call";
+"action-title-facetime-audio"       = "FaceTime Audio Call";
+"action-title-facetime-video"       = "FaceTime Video Call";
+
+// Action Titles - Mail
+"action-title-send-mail"            = "Send Mail";
+"action-title-send-gmail"           = "Send via Gmail";
+
+// Action Titles - Maps
+"action-title-maps"                 = "Open in Maps";
+"action-title-google-maps"          = "Open in Google Maps";
+
+// Action Titles - SMS
+"action-title-sms"                  = "SMS";
+
+// Action Titles - Web Browsers
+"action-title-chrome"               = "Open in Chrome";
+"action-title-safari"               = "Open in Safari";

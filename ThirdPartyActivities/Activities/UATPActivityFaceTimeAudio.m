@@ -1,26 +1,26 @@
 //
-//  UATPActivityChrome.m
+//  UATPActivityFaceTimeAudio.m
 //  ThirdPartyActivities
 //
 //  Created by Rob Amos on 3/12/2014.
 //  Copyright (c) 2014 Unsigned Apps. All rights reserved.
 //
 
-#import "UATPActivityChrome.h"
+#import "UATPActivityFaceTimeAudio.h"
 
-@interface UATPActivityChrome ()
+@interface UATPActivityFaceTimeAudio ()
 
 @property (nonatomic, copy) NSArray *items;
 
 @end
 
-@implementation UATPActivityChrome
+@implementation UATPActivityFaceTimeAudio
 
 @synthesize items=_items;
 
 /**
  * Configuration
-**/
+ **/
 
 + (UIActivityCategory)activityCategory
 {
@@ -29,22 +29,22 @@
 
 - (NSString *)activityType
 {
-    return @"com.unsignedapps.thirdpartyactivities.chrome";
+    return @"com.unsignedapps.thirdpartyactivities.facetimeaudio";
 }
 
 - (NSString *)activityTitle
 {
-    return NSLocalizedStringFromTable(@"action-title-chrome", @"UATPLocalizable", @"Action Title for Chrome");
+    return NSLocalizedStringFromTable(@"action-title-facetime-audio", @"UATPLocalizable", @"Action Title for Making FaceTime audio calls");
 }
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"open-in-chrome"];
+    return [UIImage imageNamed:@"facetime-audio-call"];
 }
 
 /**
  * Supporting Activity Items
-**/
+ **/
 
 + (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
 {
@@ -55,23 +55,23 @@
     for (id item in activityItems)
     {
         NSURL *url = nil;
-
+        
         if ([item isKindOfClass:[NSURL class]])
             url = (NSURL *)item;
-
+        
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
         
         // if we have a URL we can check it
         if (url != nil)
         {
-            NSURL *chromeURL = [self chromeURLForURL:url];
-            
-            if (chromeURL == nil)
+            // not a supported URL?
+            NSURL *facetimeURL = [self faceTimeURLForURL:url];
+            if (facetimeURL == nil)
                 continue;
             
             // make sure we can open it
-            if ([[UIApplication sharedApplication] canOpenURL:chromeURL])
+            if ([[UIApplication sharedApplication] canOpenURL:facetimeURL])
                 return YES;
         }
     }
@@ -86,7 +86,7 @@
 
 /**
  * Performing the Activity
-**/
+ **/
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
@@ -115,20 +115,21 @@
         if (url == nil)
             continue;
         
-        // great, now we need to chrome-ify it
-        NSURL *chromeURL = [self.class chromeURLForURL:url];
-        if (chromeURL == nil)
+        // now convert to facetime
+        url = [self.class faceTimeURLForURL:url];
+        
+        if (url == nil)
             continue;
         
         UIApplication *app = [UIApplication sharedApplication];
-        if (![app canOpenURL:chromeURL])
+        if (![app canOpenURL:url])
         {
             // if its not supported we can't recover with any other URL type
             [self activityDidFinish:NO];
             return;
         }
-
-        [app openURL:chromeURL];
+        
+        [app openURL:url];
         [self activityDidFinish:YES];
         return;
     }
@@ -136,28 +137,25 @@
     [self activityDidFinish:NO];
 }
 
-/**
- * Utilities
-**/
-
-+ (NSURL *)chromeURLForURL:(NSURL *)url
++ (NSURL *)faceTimeURLForURL:(NSURL *)url
 {
     NSParameterAssert(url != nil);
-
-    NSString *urlString = url.absoluteString;
-    if (urlString == nil)
+    
+    // not a supported scheme?
+    if (![url.scheme isEqualToString:@"tel"] && ![url.scheme isEqualToString:@"mailto"] && ![url.scheme isEqualToString:@"facetime"] && ![url.scheme isEqualToString:@"facetime-audio"])
         return nil;
     
-    // HTTP urls
-    if ([urlString rangeOfString:@"http://"].location == 0)
-        return [NSURL URLWithString:[urlString stringByReplacingOccurrencesOfString:@"http://" withString:@"googlechrome://"]];
+    if ([url.scheme isEqualToString:@"tel"])
+        return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"tel:" withString:@"facetime-audio://"]];
     
-    // HTTPS urls
-    else if ([urlString rangeOfString:@"https://"].location == 0)
-        return [NSURL URLWithString:[urlString stringByReplacingOccurrencesOfString:@"https://" withString:@"googlechromes://"]];
+    else if ([url.scheme isEqualToString:@"mailto"])
+        return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"mailto:" withString:@"facetime-audio://"]];
     
-    // not supported
-    return nil;
+    else if ([url.scheme isEqualToString:@"facetime"])
+        return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"facetime-audio:" withString:@"facetime-audio://"]];
+    
+    // we already support the others
+    return url;
 }
 
 @end

@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		E893938C1A2EDDCD00A3D01C /* UATPActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E893938B1A2EDDCD00A3D01C /* UATPActivity.m */; };
 		E89393901A2EDE3200A3D01C /* UATPActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E893938F1A2EDE3200A3D01C /* UATPActivityChrome.m */; };
+		E89393981A2EE74500A3D01C /* UATPActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393971A2EE74500A3D01C /* UATPActivitySafari.m */; };
+		E89393A01A2EEAFE00A3D01C /* UATPActivityPhoneCall.m in Sources */ = {isa = PBXBuildFile; fileRef = E893939F1A2EEAFE00A3D01C /* UATPActivityPhoneCall.m */; };
+		E89393A51A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393A41A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.m */; };
+		E89393A81A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393A71A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m */; };
+		E89393AC1A2EEE0500A3D01C /* UATPActivitySMS.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393AB1A2EEE0500A3D01C /* UATPActivitySMS.m */; };
+		E89393B01A2EEEA700A3D01C /* UATPActivityMaps.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393AF1A2EEEA700A3D01C /* UATPActivityMaps.m */; };
+		E89393B41A2EEFA400A3D01C /* UATPActivityGoogleMaps.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393B31A2EEFA400A3D01C /* UATPActivityGoogleMaps.m */; };
+		E89393B81A2EF21F00A3D01C /* UATPActivityMail.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393B71A2EF21F00A3D01C /* UATPActivityMail.m */; };
+		E89393BB1A2EF29800A3D01C /* UATPActivityGmail.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393BA1A2EF29800A3D01C /* UATPActivityGmail.m */; };
 		E8D89BFD1A2EDC1D00A3B11E /* libThirdPartyActivities.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D89BF11A2EDC1D00A3B11E /* libThirdPartyActivities.a */; };
 		E8D89C0E1A2EDC7400A3B11E /* UATPActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D89C0D1A2EDC7400A3B11E /* UATPActivities.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +51,24 @@
 		E893938E1A2EDE3200A3D01C /* UATPActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityChrome.h; sourceTree = "<group>"; };
 		E893938F1A2EDE3200A3D01C /* UATPActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityChrome.m; sourceTree = "<group>"; };
 		E89393911A2EDE7500A3D01C /* UATPLocalizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = UATPLocalizable.strings; sourceTree = "<group>"; };
+		E89393961A2EE74500A3D01C /* UATPActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivitySafari.h; sourceTree = "<group>"; };
+		E89393971A2EE74500A3D01C /* UATPActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivitySafari.m; sourceTree = "<group>"; };
+		E893939E1A2EEAFE00A3D01C /* UATPActivityPhoneCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityPhoneCall.h; sourceTree = "<group>"; };
+		E893939F1A2EEAFE00A3D01C /* UATPActivityPhoneCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityPhoneCall.m; sourceTree = "<group>"; };
+		E89393A31A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityFaceTimeVideo.h; sourceTree = "<group>"; };
+		E89393A41A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityFaceTimeVideo.m; sourceTree = "<group>"; };
+		E89393A61A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityFaceTimeAudio.h; sourceTree = "<group>"; };
+		E89393A71A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityFaceTimeAudio.m; sourceTree = "<group>"; };
+		E89393AA1A2EEE0500A3D01C /* UATPActivitySMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivitySMS.h; sourceTree = "<group>"; };
+		E89393AB1A2EEE0500A3D01C /* UATPActivitySMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivitySMS.m; sourceTree = "<group>"; };
+		E89393AE1A2EEEA700A3D01C /* UATPActivityMaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityMaps.h; sourceTree = "<group>"; };
+		E89393AF1A2EEEA700A3D01C /* UATPActivityMaps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityMaps.m; sourceTree = "<group>"; };
+		E89393B21A2EEFA400A3D01C /* UATPActivityGoogleMaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityGoogleMaps.h; sourceTree = "<group>"; };
+		E89393B31A2EEFA400A3D01C /* UATPActivityGoogleMaps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityGoogleMaps.m; sourceTree = "<group>"; };
+		E89393B61A2EF21F00A3D01C /* UATPActivityMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityMail.h; sourceTree = "<group>"; };
+		E89393B71A2EF21F00A3D01C /* UATPActivityMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityMail.m; sourceTree = "<group>"; };
+		E89393B91A2EF29800A3D01C /* UATPActivityGmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityGmail.h; sourceTree = "<group>"; };
+		E89393BA1A2EF29800A3D01C /* UATPActivityGmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityGmail.m; sourceTree = "<group>"; };
 		E8D89BF11A2EDC1D00A3B11E /* libThirdPartyActivities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libThirdPartyActivities.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D89BFC1A2EDC1D00A3B11E /* ThirdPartyActivitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThirdPartyActivitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D89C021A2EDC1D00A3B11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,18 +101,68 @@
 			children = (
 				E893938A1A2EDDCD00A3D01C /* UATPActivity.h */,
 				E893938B1A2EDDCD00A3D01C /* UATPActivity.m */,
-				E893938D1A2EDE1D00A3D01C /* Chrome */,
+				E893939D1A2EEAE900A3D01C /* Calling */,
+				E89393B51A2EF20A00A3D01C /* Mail */,
+				E89393AD1A2EEE9000A3D01C /* Maps */,
+				E89393A91A2EEDEF00A3D01C /* SMS */,
+				E89393951A2EE6F800A3D01C /* Web Browsers */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
 		};
-		E893938D1A2EDE1D00A3D01C /* Chrome */ = {
+		E89393951A2EE6F800A3D01C /* Web Browsers */ = {
 			isa = PBXGroup;
 			children = (
 				E893938E1A2EDE3200A3D01C /* UATPActivityChrome.h */,
 				E893938F1A2EDE3200A3D01C /* UATPActivityChrome.m */,
+				E89393961A2EE74500A3D01C /* UATPActivitySafari.h */,
+				E89393971A2EE74500A3D01C /* UATPActivitySafari.m */,
 			);
-			name = Chrome;
+			name = "Web Browsers";
+			sourceTree = "<group>";
+		};
+		E893939D1A2EEAE900A3D01C /* Calling */ = {
+			isa = PBXGroup;
+			children = (
+				E89393A31A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.h */,
+				E89393A41A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.m */,
+				E89393A61A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.h */,
+				E89393A71A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m */,
+				E893939E1A2EEAFE00A3D01C /* UATPActivityPhoneCall.h */,
+				E893939F1A2EEAFE00A3D01C /* UATPActivityPhoneCall.m */,
+			);
+			name = Calling;
+			sourceTree = "<group>";
+		};
+		E89393A91A2EEDEF00A3D01C /* SMS */ = {
+			isa = PBXGroup;
+			children = (
+				E89393AA1A2EEE0500A3D01C /* UATPActivitySMS.h */,
+				E89393AB1A2EEE0500A3D01C /* UATPActivitySMS.m */,
+			);
+			name = SMS;
+			sourceTree = "<group>";
+		};
+		E89393AD1A2EEE9000A3D01C /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				E89393B21A2EEFA400A3D01C /* UATPActivityGoogleMaps.h */,
+				E89393B31A2EEFA400A3D01C /* UATPActivityGoogleMaps.m */,
+				E89393AE1A2EEEA700A3D01C /* UATPActivityMaps.h */,
+				E89393AF1A2EEEA700A3D01C /* UATPActivityMaps.m */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		E89393B51A2EF20A00A3D01C /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				E89393B61A2EF21F00A3D01C /* UATPActivityMail.h */,
+				E89393B71A2EF21F00A3D01C /* UATPActivityMail.m */,
+				E89393B91A2EF29800A3D01C /* UATPActivityGmail.h */,
+				E89393BA1A2EF29800A3D01C /* UATPActivityGmail.m */,
+			);
+			name = Mail;
 			sourceTree = "<group>";
 		};
 		E8D89BE81A2EDC1D00A3B11E = {
@@ -223,9 +300,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89393B81A2EF21F00A3D01C /* UATPActivityMail.m in Sources */,
+				E89393981A2EE74500A3D01C /* UATPActivitySafari.m in Sources */,
 				E893938C1A2EDDCD00A3D01C /* UATPActivity.m in Sources */,
+				E89393B41A2EEFA400A3D01C /* UATPActivityGoogleMaps.m in Sources */,
+				E89393A81A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m in Sources */,
+				E89393A51A2EEC1900A3D01C /* UATPActivityFaceTimeVideo.m in Sources */,
+				E89393A01A2EEAFE00A3D01C /* UATPActivityPhoneCall.m in Sources */,
+				E89393BB1A2EF29800A3D01C /* UATPActivityGmail.m in Sources */,
 				E89393901A2EDE3200A3D01C /* UATPActivityChrome.m in Sources */,
+				E89393AC1A2EEE0500A3D01C /* UATPActivitySMS.m in Sources */,
 				E8D89C0E1A2EDC7400A3B11E /* UATPActivities.m in Sources */,
+				E89393B01A2EEEA700A3D01C /* UATPActivityMaps.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

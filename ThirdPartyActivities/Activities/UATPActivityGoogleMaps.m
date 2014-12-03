@@ -1,20 +1,20 @@
 //
-//  UATPActivityChrome.m
+//  UATPActivityGoogleMaps.m
 //  ThirdPartyActivities
 //
 //  Created by Rob Amos on 3/12/2014.
 //  Copyright (c) 2014 Unsigned Apps. All rights reserved.
 //
 
-#import "UATPActivityChrome.h"
+#import "UATPActivityGoogleMaps.h"
 
-@interface UATPActivityChrome ()
+@interface UATPActivityGoogleMaps ()
 
 @property (nonatomic, copy) NSArray *items;
 
 @end
 
-@implementation UATPActivityChrome
+@implementation UATPActivityGoogleMaps
 
 @synthesize items=_items;
 
@@ -29,22 +29,22 @@
 
 - (NSString *)activityType
 {
-    return @"com.unsignedapps.thirdpartyactivities.chrome";
+    return @"com.unsignedapps.thirdpartyactivities.googlemaps";
 }
 
 - (NSString *)activityTitle
 {
-    return NSLocalizedStringFromTable(@"action-title-chrome", @"UATPLocalizable", @"Action Title for Chrome");
+    return NSLocalizedStringFromTable(@"action-title-google-maps", @"UATPLocalizable", @"Action Title for Opening in Google Maps");
 }
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"open-in-chrome"];
+    return [UIImage imageNamed:@"open-in-google-maps"];
 }
 
 /**
  * Supporting Activity Items
-**/
+ **/
 
 + (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
 {
@@ -55,23 +55,24 @@
     for (id item in activityItems)
     {
         NSURL *url = nil;
-
+        
         if ([item isKindOfClass:[NSURL class]])
             url = (NSURL *)item;
-
+        
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
         
         // if we have a URL we can check it
         if (url != nil)
         {
-            NSURL *chromeURL = [self chromeURLForURL:url];
-            
-            if (chromeURL == nil)
+            // not a supported URL?
+            NSURL *mapsURL = [self googleMapsURLForURL:url];
+
+            if (mapsURL == nil)
                 continue;
             
             // make sure we can open it
-            if ([[UIApplication sharedApplication] canOpenURL:chromeURL])
+            if ([[UIApplication sharedApplication] canOpenURL:mapsURL])
                 return YES;
         }
     }
@@ -86,7 +87,7 @@
 
 /**
  * Performing the Activity
-**/
+ **/
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
@@ -115,20 +116,20 @@
         if (url == nil)
             continue;
         
-        // great, now we need to chrome-ify it
-        NSURL *chromeURL = [self.class chromeURLForURL:url];
-        if (chromeURL == nil)
+        // convert it
+        url = [self.class googleMapsURLForURL:url];
+        if (url == nil)
             continue;
         
         UIApplication *app = [UIApplication sharedApplication];
-        if (![app canOpenURL:chromeURL])
+        if (![app canOpenURL:url])
         {
             // if its not supported we can't recover with any other URL type
             [self activityDidFinish:NO];
             return;
         }
-
-        [app openURL:chromeURL];
+        
+        [app openURL:url];
         [self activityDidFinish:YES];
         return;
     }
@@ -136,27 +137,21 @@
     [self activityDidFinish:NO];
 }
 
-/**
- * Utilities
-**/
-
-+ (NSURL *)chromeURLForURL:(NSURL *)url
++ (NSURL *)googleMapsURLForURL:(NSURL *)url
 {
     NSParameterAssert(url != nil);
-
-    NSString *urlString = url.absoluteString;
-    if (urlString == nil)
-        return nil;
     
-    // HTTP urls
-    if ([urlString rangeOfString:@"http://"].location == 0)
-        return [NSURL URLWithString:[urlString stringByReplacingOccurrencesOfString:@"http://" withString:@"googlechrome://"]];
+    // if it is maps: convert it straight over
+    if ([url.scheme isEqualToString:@"maps"])
+        return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"maps://" withString:@"comgooglemaps://"]];
     
-    // HTTPS urls
-    else if ([urlString rangeOfString:@"https://"].location == 0)
-        return [NSURL URLWithString:[urlString stringByReplacingOccurrencesOfString:@"https://" withString:@"googlechromes://"]];
+    // if it is a maps.google.com or maps.apple.com URL
+    else if ([url.host rangeOfString:@"maps.google"].location == 0 || [url.host isEqualToString:@"maps.apple.com"])
+    {
+        NSString *replacement = [NSString stringWithFormat:@"%@://%@/", url.scheme, url.host];
+        return [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://%@", [url.absoluteString stringByReplacingOccurrencesOfString:replacement withString:@""]]];
+    }
     
-    // not supported
     return nil;
 }
 
