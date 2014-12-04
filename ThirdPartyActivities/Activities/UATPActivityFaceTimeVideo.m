@@ -7,6 +7,7 @@
 //
 
 #import "UATPActivityFaceTimeVideo.h"
+#import "UATPPrivateURL.h"
 
 @interface UATPActivityFaceTimeVideo ()
 
@@ -29,7 +30,7 @@
 
 - (NSString *)activityType
 {
-    return @"com.unsignedapps.thirdpartyactivities.facetimevideo";
+    return @"com.unsignedapps.thirdpartyactivities.facetime";
 }
 
 - (NSString *)activityTitle
@@ -39,7 +40,7 @@
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"facetime-video-call"];
+    return [UIImage imageNamed:@"facetime-call"];
 }
 
 /**
@@ -61,6 +62,9 @@
         
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
+
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
         
         // if we have a URL we can check it
         if (url != nil)
@@ -72,7 +76,7 @@
             
             // make sure we can open it
             if ([[UIApplication sharedApplication] canOpenURL:facetimeURL])
-                continue;
+                return YES;
         }
     }
     

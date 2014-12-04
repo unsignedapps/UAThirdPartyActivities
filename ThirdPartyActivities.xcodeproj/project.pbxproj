@@ -20,6 +20,13 @@
 		E89393BB1A2EF29800A3D01C /* UATPActivityGmail.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393BA1A2EF29800A3D01C /* UATPActivityGmail.m */; };
 		E8D89BFD1A2EDC1D00A3B11E /* libThirdPartyActivities.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D89BF11A2EDC1D00A3B11E /* libThirdPartyActivities.a */; };
 		E8D89C0E1A2EDC7400A3B11E /* UATPActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D89C0D1A2EDC7400A3B11E /* UATPActivities.m */; };
+		E8EC92CC1A30006300709535 /* NSURL+UAQueryStringDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92CB1A30006300709535 /* NSURL+UAQueryStringDictionary.m */; };
+		E8EC92D01A3007A600709535 /* UATPActivityTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92CF1A3007A600709535 /* UATPActivityTwitter.m */; };
+		E8EC92D31A300C3F00709535 /* UATPActivityTweetbot.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92D21A300C3F00709535 /* UATPActivityTweetbot.m */; };
+		E8EC92D51A300D9700709535 /* UATPActivityTwitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92D41A300D9700709535 /* UATPActivityTwitterTests.m */; };
+		E8EC92D81A30125900709535 /* UATPActivityTwitterific.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92D71A30125900709535 /* UATPActivityTwitterific.m */; };
+		E8EC92DC1A30349100709535 /* UATPPrivateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92DB1A30349100709535 /* UATPPrivateURL.m */; };
+		E8EC92E71A30409100709535 /* UATPActivitySkype.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EC92E61A30409100709535 /* UATPActivitySkype.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,19 @@
 		E8D89C0B1A2EDC4D00A3B11E /* UAThirdPartyActivities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAThirdPartyActivities.h; sourceTree = "<group>"; };
 		E8D89C0C1A2EDC7400A3B11E /* UATPActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivities.h; sourceTree = "<group>"; };
 		E8D89C0D1A2EDC7400A3B11E /* UATPActivities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivities.m; sourceTree = "<group>"; };
+		E8EC92CA1A30006300709535 /* NSURL+UAQueryStringDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+UAQueryStringDictionary.h"; sourceTree = "<group>"; };
+		E8EC92CB1A30006300709535 /* NSURL+UAQueryStringDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+UAQueryStringDictionary.m"; sourceTree = "<group>"; };
+		E8EC92CE1A3007A600709535 /* UATPActivityTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityTwitter.h; sourceTree = "<group>"; };
+		E8EC92CF1A3007A600709535 /* UATPActivityTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityTwitter.m; sourceTree = "<group>"; };
+		E8EC92D11A300C3F00709535 /* UATPActivityTweetbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityTweetbot.h; sourceTree = "<group>"; };
+		E8EC92D21A300C3F00709535 /* UATPActivityTweetbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityTweetbot.m; sourceTree = "<group>"; };
+		E8EC92D41A300D9700709535 /* UATPActivityTwitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityTwitterTests.m; sourceTree = "<group>"; };
+		E8EC92D61A30125900709535 /* UATPActivityTwitterific.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityTwitterific.h; sourceTree = "<group>"; };
+		E8EC92D71A30125900709535 /* UATPActivityTwitterific.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityTwitterific.m; sourceTree = "<group>"; };
+		E8EC92DA1A30349100709535 /* UATPPrivateURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPPrivateURL.h; sourceTree = "<group>"; };
+		E8EC92DB1A30349100709535 /* UATPPrivateURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPPrivateURL.m; sourceTree = "<group>"; };
+		E8EC92E51A30409100709535 /* UATPActivitySkype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivitySkype.h; sourceTree = "<group>"; };
+		E8EC92E61A30409100709535 /* UATPActivitySkype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivitySkype.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +125,7 @@
 				E89393B51A2EF20A00A3D01C /* Mail */,
 				E89393AD1A2EEE9000A3D01C /* Maps */,
 				E89393A91A2EEDEF00A3D01C /* SMS */,
+				E8EC92CD1A30078C00709535 /* Twitter Clients */,
 				E89393951A2EE6F800A3D01C /* Web Browsers */,
 			);
 			path = Activities;
@@ -130,6 +151,8 @@
 				E89393A71A2EEDAD00A3D01C /* UATPActivityFaceTimeAudio.m */,
 				E893939E1A2EEAFE00A3D01C /* UATPActivityPhoneCall.h */,
 				E893939F1A2EEAFE00A3D01C /* UATPActivityPhoneCall.m */,
+				E8EC92E51A30409100709535 /* UATPActivitySkype.h */,
+				E8EC92E61A30409100709535 /* UATPActivitySkype.m */,
 			);
 			name = Calling;
 			sourceTree = "<group>";
@@ -192,6 +215,8 @@
 				E8D89C0C1A2EDC7400A3B11E /* UATPActivities.h */,
 				E8D89C0D1A2EDC7400A3B11E /* UATPActivities.m */,
 				E89393881A2EDD7500A3D01C /* Activities */,
+				E8EC92D91A30346000709535 /* Data Types */,
+				E8EC92C91A30003700709535 /* Extensions */,
 			);
 			path = ThirdPartyActivities;
 			sourceTree = "<group>";
@@ -199,6 +224,7 @@
 		E8D89C001A2EDC1D00A3B11E /* ThirdPartyActivitiesTests */ = {
 			isa = PBXGroup;
 			children = (
+				E8EC92D41A300D9700709535 /* UATPActivityTwitterTests.m */,
 				E8D89C011A2EDC1D00A3B11E /* Supporting Files */,
 			);
 			path = ThirdPartyActivitiesTests;
@@ -210,6 +236,37 @@
 				E8D89C021A2EDC1D00A3B11E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E8EC92C91A30003700709535 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC92CA1A30006300709535 /* NSURL+UAQueryStringDictionary.h */,
+				E8EC92CB1A30006300709535 /* NSURL+UAQueryStringDictionary.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E8EC92CD1A30078C00709535 /* Twitter Clients */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC92CE1A3007A600709535 /* UATPActivityTwitter.h */,
+				E8EC92CF1A3007A600709535 /* UATPActivityTwitter.m */,
+				E8EC92D11A300C3F00709535 /* UATPActivityTweetbot.h */,
+				E8EC92D21A300C3F00709535 /* UATPActivityTweetbot.m */,
+				E8EC92D61A30125900709535 /* UATPActivityTwitterific.h */,
+				E8EC92D71A30125900709535 /* UATPActivityTwitterific.m */,
+			);
+			name = "Twitter Clients";
+			sourceTree = "<group>";
+		};
+		E8EC92D91A30346000709535 /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC92DA1A30349100709535 /* UATPPrivateURL.h */,
+				E8EC92DB1A30349100709535 /* UATPPrivateURL.m */,
+			);
+			path = "Data Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +366,14 @@
 				E89393A01A2EEAFE00A3D01C /* UATPActivityPhoneCall.m in Sources */,
 				E89393BB1A2EF29800A3D01C /* UATPActivityGmail.m in Sources */,
 				E89393901A2EDE3200A3D01C /* UATPActivityChrome.m in Sources */,
+				E8EC92D81A30125900709535 /* UATPActivityTwitterific.m in Sources */,
+				E8EC92DC1A30349100709535 /* UATPPrivateURL.m in Sources */,
+				E8EC92E71A30409100709535 /* UATPActivitySkype.m in Sources */,
 				E89393AC1A2EEE0500A3D01C /* UATPActivitySMS.m in Sources */,
+				E8EC92D01A3007A600709535 /* UATPActivityTwitter.m in Sources */,
+				E8EC92D31A300C3F00709535 /* UATPActivityTweetbot.m in Sources */,
 				E8D89C0E1A2EDC7400A3B11E /* UATPActivities.m in Sources */,
+				E8EC92CC1A30006300709535 /* NSURL+UAQueryStringDictionary.m in Sources */,
 				E89393B01A2EEEA700A3D01C /* UATPActivityMaps.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8EC92D51A300D9700709535 /* UATPActivityTwitterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

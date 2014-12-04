@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/unsignedapps/UAThirdPartyActivities.git", :tag => "0.1" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-  s.source_files = 'ThirdPartyActivities/*.{h,m}', 'ThirdPartyActivities/Activities/*.{h,m}'
+  s.source_files = 'ThirdPartyActivities/*.{h,m}', 'ThirdPartyActivities/**/*.{h,m}'
   s.resources    = 'UATPImages.xcassets', 'UATPLocalizable.strings'
 end

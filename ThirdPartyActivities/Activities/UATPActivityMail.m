@@ -7,8 +7,12 @@
 //
 
 #import "UATPActivityMail.h"
+#import "NSURL+UAQueryStringDictionary.h"
+#import "UATPPrivateURL.h"
 
-@interface UATPActivityMail ()
+@import MessageUI;
+
+@interface UATPActivityMail () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *items;
 
@@ -61,7 +65,10 @@
         
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
-        
+
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {
@@ -70,8 +77,7 @@
                 continue;
             
             // make sure we can open it
-            if ([[UIApplication sharedApplication] canOpenURL:url])
-                return YES;
+            return [MFMailComposeViewController canSendMail];
         }
     }
     
@@ -118,20 +124,43 @@
         if (![url.scheme isEqualToString:@"mailto"])
             continue;
         
-        UIApplication *app = [UIApplication sharedApplication];
-        if (![app canOpenURL:url])
+        if (![MFMailComposeViewController canSendMail])
         {
             // if its not supported we can't recover with any other URL type
             [self activityDidFinish:NO];
             return;
         }
         
-        [app openURL:url];
-        [self activityDidFinish:YES];
+        // now go!
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        
+        [controller setToRecipients:@[ url.resourceSpecifier ?: @"" ]];
+        
+        NSDictionary *query = url.UAQueryDictionary;
+        
+        if (query[@"cc"] != nil)
+            [controller setCcRecipients:[query[@"cc"] componentsSeparatedByString:@","]];
+        
+        if (query[@"subject"] != nil)
+            [controller setSubject:query[@"subject"]];
+        
+        if (query[@"body"] != nil)
+            [controller setMessageBody:query[@"body"] isHTML:NO];
+        
+        [controller setMailComposeDelegate:self];
+        
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:controller animated:YES completion:NULL];
+        
         return;
     }
     
     [self activityDidFinish:NO];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    [self activityDidFinish:YES];
 }
 
 @end

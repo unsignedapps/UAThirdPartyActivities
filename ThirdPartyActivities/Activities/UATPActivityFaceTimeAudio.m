@@ -7,6 +7,7 @@
 //
 
 #import "UATPActivityFaceTimeAudio.h"
+#import "UATPPrivateURL.h"
 
 @interface UATPActivityFaceTimeAudio ()
 
@@ -29,7 +30,7 @@
 
 - (NSString *)activityType
 {
-    return @"com.unsignedapps.thirdpartyactivities.facetimeaudio";
+    return @"com.unsignedapps.thirdpartyactivities.facetime-audio";
 }
 
 - (NSString *)activityTitle
@@ -39,7 +40,7 @@
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"facetime-audio-call"];
+    return [UIImage imageNamed:@"facetime-call"];
 }
 
 /**
@@ -62,6 +63,9 @@
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
         
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {

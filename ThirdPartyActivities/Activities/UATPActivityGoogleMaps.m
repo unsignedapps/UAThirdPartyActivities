@@ -7,6 +7,7 @@
 //
 
 #import "UATPActivityGoogleMaps.h"
+#import "UATPPrivateURL.h"
 
 @interface UATPActivityGoogleMaps ()
 
@@ -62,6 +63,9 @@
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
         
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {
@@ -146,7 +150,7 @@
         return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"maps://" withString:@"comgooglemaps://"]];
     
     // if it is a maps.google.com or maps.apple.com URL
-    else if ([url.host rangeOfString:@"maps.google"].location == 0 || [url.host isEqualToString:@"maps.apple.com"])
+    else if (url.host != nil && ([url.host rangeOfString:@"maps.google"].location == 0 || [url.host isEqualToString:@"maps.apple.com"]))
     {
         NSString *replacement = [NSString stringWithFormat:@"%@://%@/", url.scheme, url.host];
         return [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://%@", [url.absoluteString stringByReplacingOccurrencesOfString:replacement withString:@""]]];

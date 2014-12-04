@@ -7,8 +7,12 @@
 //
 
 #import "UATPActivitySMS.h"
+#import "NSURL+UAQueryStringDictionary.h"
+#import "UATPPrivateURL.h"
 
-@interface UATPActivitySMS ()
+@import MessageUI;
+
+@interface UATPActivitySMS () <MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *items;
 
@@ -62,15 +66,18 @@
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
         
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {
             // not a tel: URL?
-            if (![url.scheme isEqualToString:@"sms"] || ![url.scheme isEqualToString:@"tel"])
+            if (![url.scheme isEqualToString:@"sms"] && ![url.scheme isEqualToString:@"tel"] && ![url.scheme isEqualToString:@"mailto"])
                 continue;
             
             // make sure we can open it
-            if ([[UIApplication sharedApplication] canOpenURL:url])
+            return [MFMessageComposeViewController canSendText];
                 return YES;
         }
     }
@@ -117,24 +124,43 @@
         // do we have a tel scheme?
         if ([url.scheme isEqualToString:@"tel"])
             url = [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"tel:" withString:@"sms:"]];
-        
+
+        else if ([url.scheme isEqualToString:@"mailto"])
+            url = [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"mailto:" withString:@"sms:"]];
+
         if (url == nil || ![url.scheme isEqualToString:@"sms"])
             continue;
         
-        UIApplication *app = [UIApplication sharedApplication];
-        if (![app canOpenURL:url])
+        if (![MFMessageComposeViewController canSendText])
         {
-            // if its not supported we can't recover with any other URL type
             [self activityDidFinish:NO];
             return;
         }
+
+        // now go
+        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
         
-        [app openURL:url];
-        [self activityDidFinish:YES];
+        [controller setRecipients:@[ url.resourceSpecifier ?: @"" ]];
+        
+        NSDictionary *query = url.UAQueryDictionary;
+        
+        if (query[@"subject"] != nil && [MFMessageComposeViewController canSendSubject])
+            [controller setSubject:query[@"subject"]];
+        
+        [controller setMessageComposeDelegate:self];
+        
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:controller animated:YES completion:NULL];
+        
         return;
     }
     
     [self activityDidFinish:NO];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [controller.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    [self activityDidFinish:YES];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "UATPActivityChrome.h"
+#import "UATPPrivateURL.h"
 
 @interface UATPActivityChrome ()
 
@@ -61,10 +62,17 @@
 
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
-        
+
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {
+            // if the host is maps.apple.com we prefer the native apps, it will redirect automatically
+            if ([url.host isEqualToString:@"maps.apple.com"])
+                continue;
+            
             NSURL *chromeURL = [self chromeURLForURL:url];
             
             if (chromeURL == nil)
@@ -113,6 +121,10 @@
             url = [NSURL URLWithString:item];
         
         if (url == nil)
+            continue;
+        
+        // if the host is maps.apple.com we prefer the native apps, it will redirect automatically
+        if ([url.host isEqualToString:@"maps.apple.com"])
             continue;
         
         // great, now we need to chrome-ify it

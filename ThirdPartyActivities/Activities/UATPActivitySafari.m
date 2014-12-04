@@ -7,6 +7,7 @@
 //
 
 #import "UATPActivitySafari.h"
+#import "UATPPrivateURL.h"
 
 @interface UATPActivitySafari ()
 
@@ -61,10 +62,21 @@
         
         else if ([item isKindOfClass:[NSString class]])
             url = [NSURL URLWithString:item];
-        
+
+        else if ([item isKindOfClass:[UATPPrivateURL class]])
+            url = ((UATPPrivateURL *)item).url;
+
         // if we have a URL we can check it
         if (url != nil)
         {
+            // only http/https links
+            if (![url.scheme isEqualToString:@"http"] && ![url.scheme isEqualToString:@"https"])
+                continue;
+
+            // if the host is maps.apple.com we can't get to Safari, it will redirect automatically
+            if ([url.host isEqualToString:@"maps.apple.com"])
+                continue;
+            
             // make sure we can open it
             if ([[UIApplication sharedApplication] canOpenURL:url])
                 return YES;
@@ -109,7 +121,15 @@
         
         if (url == nil)
             continue;
-        
+
+        // only http and https links I guess
+        if (![url.scheme isEqualToString:@"http"] && ![url.scheme isEqualToString:@"https"])
+            continue;
+
+        // if the host is maps.apple.com we can't get to Safari, it will redirect automatically
+        if ([url.host isEqualToString:@"maps.apple.com"])
+            continue;
+
         UIApplication *app = [UIApplication sharedApplication];
         if (![app canOpenURL:url])
         {

@@ -11,6 +11,7 @@
 "action-title-call"                 = "Call";
 "action-title-facetime-audio"       = "FaceTime Audio Call";
 "action-title-facetime-video"       = "FaceTime Video Call";
+"action-title-skype"                = "Skype Call";
 
 // Action Titles - Mail
 "action-title-send-mail"            = "Send Mail";
@@ -21,7 +22,12 @@
 "action-title-google-maps"          = "Open in Google Maps";
 
 // Action Titles - SMS
-"action-title-sms"                  = "SMS";
+"action-title-sms"                  = "Send SMS";
+
+// Action Titles - Twitter Clients
+"action-title-twitter"              = "Open in Twitter";
+"action-title-tweetbot"             = "Open in Tweetbot";
+"action-title-twitterific"          = "Open in Twitterific";
 
 // Action Titles - Web Browsers
 "action-title-chrome"               = "Open in Chrome";
