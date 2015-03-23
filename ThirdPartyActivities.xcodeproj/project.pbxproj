@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80425651ABF8FF800D675B8 /* UATPActivityInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = E80425641ABF8FF800D675B8 /* UATPActivityInstagram.m */; };
 		E893938C1A2EDDCD00A3D01C /* UATPActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E893938B1A2EDDCD00A3D01C /* UATPActivity.m */; };
 		E89393901A2EDE3200A3D01C /* UATPActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E893938F1A2EDE3200A3D01C /* UATPActivityChrome.m */; };
 		E89393981A2EE74500A3D01C /* UATPActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = E89393971A2EE74500A3D01C /* UATPActivitySafari.m */; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E80425631ABF8FF800D675B8 /* UATPActivityInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivityInstagram.h; sourceTree = "<group>"; };
+		E80425641ABF8FF800D675B8 /* UATPActivityInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivityInstagram.m; sourceTree = "<group>"; };
 		E89393891A2EDD9E00A3D01C /* UATPImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UATPImages.xcassets; sourceTree = "<group>"; };
 		E893938A1A2EDDCD00A3D01C /* UATPActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATPActivity.h; sourceTree = "<group>"; };
 		E893938B1A2EDDCD00A3D01C /* UATPActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATPActivity.m; sourceTree = "<group>"; };
@@ -116,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E80425621ABF8FD700D675B8 /* Photo Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				E80425631ABF8FF800D675B8 /* UATPActivityInstagram.h */,
+				E80425641ABF8FF800D675B8 /* UATPActivityInstagram.m */,
+			);
+			name = "Photo Sharing";
+			sourceTree = "<group>";
+		};
 		E89393881A2EDD7500A3D01C /* Activities */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +136,7 @@
 				E893939D1A2EEAE900A3D01C /* Calling */,
 				E89393B51A2EF20A00A3D01C /* Mail */,
 				E89393AD1A2EEE9000A3D01C /* Maps */,
+				E80425621ABF8FD700D675B8 /* Photo Sharing */,
 				E89393A91A2EEDEF00A3D01C /* SMS */,
 				E8EC92CD1A30078C00709535 /* Twitter Clients */,
 				E89393951A2EE6F800A3D01C /* Web Browsers */,
@@ -373,6 +386,7 @@
 				E8EC92D01A3007A600709535 /* UATPActivityTwitter.m in Sources */,
 				E8EC92D31A300C3F00709535 /* UATPActivityTweetbot.m in Sources */,
 				E8D89C0E1A2EDC7400A3B11E /* UATPActivities.m in Sources */,
+				E80425651ABF8FF800D675B8 /* UATPActivityInstagram.m in Sources */,
 				E8EC92CC1A30006300709535 /* NSURL+UAQueryStringDictionary.m in Sources */,
 				E89393B01A2EEEA700A3D01C /* UATPActivityMaps.m in Sources */,
 			);

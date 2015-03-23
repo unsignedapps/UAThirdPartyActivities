@@ -32,6 +32,9 @@
 #import "UATPActivityTwitter.h"
 #import "UATPActivityTwitterific.h"
 
+// Activities - Photo Sharing
+#import "UATPActivityInstagram.h"
+
 // Activities - Web Browsers
 #import "UATPActivityChrome.h"
 #import "UATPActivitySafari.h"
