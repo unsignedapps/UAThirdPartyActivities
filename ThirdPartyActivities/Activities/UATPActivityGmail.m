@@ -147,7 +147,7 @@
     if (![url.scheme isEqualToString:@"mailto"])
         return nil;
     
-    return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"mailto:" withString:@"googlemail://co?to="]];
+    return [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"mailto:" withString:@"googlegmail:///co?to="]];
 }
 
 @end

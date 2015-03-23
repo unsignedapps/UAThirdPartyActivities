@@ -20,7 +20,7 @@
 @synthesize items=_items;
 
 /**
- * Configuration
+ * Configuration 
  **/
 
 + (UIActivityCategory)activityCategory

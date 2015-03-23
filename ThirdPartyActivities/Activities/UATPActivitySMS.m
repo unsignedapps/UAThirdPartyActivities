@@ -78,7 +78,6 @@
             
             // make sure we can open it
             return [MFMessageComposeViewController canSendText];
-                return YES;
         }
     }
     
