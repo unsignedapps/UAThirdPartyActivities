@@ -152,7 +152,7 @@
     NSParameterAssert(url != nil);
     
     // instagram.com URLs
-    if (url.host != nil && [url.host rangeOfString:@"instaagram.com"].location != NSNotFound)
+    if (url.host != nil && [url.host rangeOfString:@"instagram.com"].location != NSNotFound)
     {
         // is it a user page?
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\/([a-z0-9_]+)\\/?" options:NSRegularExpressionCaseInsensitive error:nil];
