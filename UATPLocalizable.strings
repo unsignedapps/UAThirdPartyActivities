@@ -29,6 +29,9 @@
 "action-title-tweetbot"             = "Open in Tweetbot";
 "action-title-twitterific"          = "Open in Twitterific";
 
+// Photo Sharing
+"action-title-instagram"            = "Open in Instagram";
+
 // Action Titles - Web Browsers
 "action-title-chrome"               = "Open in Chrome";
 "action-title-safari"               = "Open in Safari";
